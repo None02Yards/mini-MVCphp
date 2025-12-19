@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>style.css">
+</head>
+<body>
+    <div class="grid-calculator">
+        <h1>Scientific Calculator</h1>
+
+        <!-- Output -->
+        <div class="output">
+            <input type="text" id="expression" placeholder="Enter expression" readonly>
+            <div id="result"></div>
+        </div>
+
+        <!-- Buttons Grid -->
+        <div class="buttons-grid">
+            <button class="btn-function" onclick="appendExpression('(')">(</button>
+            <button class="btn-function" onclick="appendExpression(')')">)</button>
+            <button class="btn-function" onclick="appendExpression('%')">%</button>
+            <button class="btn-operation" onclick="resetCalculator()">AC</button>
+            <button id="angle-toggle" onclick="toggleAngleMode()">DEG</button>
+
+            <button class="btn-operation" onclick="toggleHistory()">History</button>
+
+            <button class="btn-number" onclick="appendExpression('7')">7</button>
+            <button class="btn-number" onclick="appendExpression('8')">8</button>
+            <button class="btn-number" onclick="appendExpression('9')">9</button>
+            <button class="btn-operation" onclick="appendExpression('/')">÷</button>
+
+            <button class="btn-number" onclick="appendExpression('4')">4</button>
+            <button class="btn-number" onclick="appendExpression('5')">5</button>
+            <button class="btn-number" onclick="appendExpression('6')">6</button>
+            <button class="btn-operation" onclick="appendExpression('*')">×</button>
+
+            <button class="btn-number" onclick="appendExpression('1')">1</button>
+            <button class="btn-number" onclick="appendExpression('2')">2</button>
+            <button class="btn-number" onclick="appendExpression('3')">3</button>
+            <button class="btn-operation" onclick="appendExpression('-')">−</button>
+
+            <button class="btn-number" onclick="appendExpression('0')">0</button>
+            <button class="btn-number" onclick="appendExpression('.')">.</button>
+            <button class="btn-operation" onclick="calculate()">=</button>
+            <button class="btn-operation" onclick="appendExpression('+')">+</button>
+
+            <button class="btn-function" onclick="appendExpression('sin(')">sin</button>
+            <button class="btn-function" onclick="appendExpression('cos(')">cos</button>
+            <button class="btn-function" onclick="appendExpression('tan(')">tan</button>
+            <button class="btn-function" onclick="appendExpression('sqrt(')">√</button>
+
+            <button class="btn-function" onclick="appendExpression('^')">xⁿ</button>
+            <button class="btn-function" onclick="appendExpression('log(')">log</button>
+            <button class="btn-function" onclick="appendExpression('π')">π</button>
+            <button class="btn-function" onclick="appendExpression('e')">e</button>
+        </div>
+    </div>
+
+    <!-- History Panel -->
+    <div id="history-panel" class="history hidden">
+        <h3>History</h3>
+        <button class="history-clear-btn" onclick="clearHistory()">Clear History</button>
+        <ul id="history-list"></ul>
+    </div>
+
+    <!-- Confirmation Overlay -->
+    <div id="confirm-overlay" class="confirm-overlay hidden">
+        <div class="confirm-box">
+            <p>Clear all history?</p>
+            <div class="confirm-actions">
+                <button class="confirm-cancel" onclick="closeConfirm()">Cancel</button>
+                <button class="confirm-ok" onclick="confirmClearHistory()">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="<?= BASE_URL ?>script.js"></script>
+</body>
+</html>
